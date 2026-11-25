@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Prestige Motors - Premier luxury automobile showroom featuring the world's most distinguished supercars and grand tourers.">
+  <title>Prestige Motors | Luxury Automobile Showroom</title>
+
+  <!-- Google Fonts: Cormorant Garamond / Playfair Display for luxury serif, Montserrat & Inter for crisp sans-serif -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- External Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ========================================================
+       1. NAVIGATION BAR (HTML5 <header> & <nav> semantic elements)
+       ======================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="header-container">
+      <!-- Showroom Logo & Brand Mark -->
+      <a href="#hero" class="brand-logo" aria-label="Prestige Motors Homepage">
+        <span class="logo-crest">⚜</span>
+        <div class="logo-text">
+          <span class="brand-name">PRESTIGE</span>
+          <span class="brand-sub">MOTORS</span>
+        </div>
+      </a>
+
+      <!-- Desktop & Mobile Navigation Menu -->
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#collection" class="nav-link">Our Cars</a></li>
+          <li><a href="#comparison" class="nav-link">Specifications</a></li>
+          <li><a href="#about" class="nav-link">About Us</a></li>
+          <li><a href="#why-choose-us" class="nav-link">Why Choose Us</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Navigation Actions (Favorites Button + Mobile Toggle) -->
+      <div class="nav-actions">
+        <!-- LocalStorage Favorites Trigger Button -->
+        <button type="button" class="btn-favorites" id="favoritesBtn" aria-label="View Saved Favorite Cars">
+          <svg class="heart-icon" viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span class="favorites-label">Favorites</span>
+          <span class="fav-badge" id="favCountBadge">0</span>
+        </button>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================
+       MAIN CONTENT CONTAINER (HTML5 <main> element)
+       ======================================================== -->
+  <main id="mainContent">
+
+    <!-- ======================================================
+         2. HERO SECTION
+         ====================================================== -->
+    <section class="hero-section" id="hero">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <span class="hero-subtitle">THE PINNACLE OF AUTOMOTIVE LUXURY</span>
+        <h1 class="hero-title">Discover Your Dream Car</h1>
+        <p class="hero-description">
+          Welcome to Prestige Motors, where automotive passion meets timeless perfection. 
+          Explore an exceptional selection of curated exotics, master-crafted grand tourers, 
+          and peerless luxury motorcars built for discerning connoisseurs.
+        </p>
+        <div class="hero-cta-group">
+          <a href="#collection" class="btn btn-primary">Explore Cars</a>
+          <a href="#contact" class="btn btn-outline">Schedule VIP Consultation</a>
+        </div>
+
+        <!-- Quick Metrics Highlights -->
+        <div class="hero-highlights">
+          <div class="highlight-item">
+            <span class="highlight-number">100%</span>
+            <span class="highlight-label">Certified Heritage</span>
+          </div>
+          <div class="highlight-divider"></div>
+          <div class="highlight-item">
+            <span class="highlight-number">500+</span>
+            <span class="highlight-label">Exotic Vehicles Delivered</span>
+          </div>
+          <div class="highlight-divider"></div>
+          <div class="highlight-item">
+            <span class="highlight-number">25+</span>
+            <span class="highlight-label">Years of Excellence</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         3. OUR COLLECTION SECTION
+         ====================================================== -->
+    <section class="section collection-section" id="collection">
+      <div class="container">
+        <!-- Section Header -->
+        <div class="section-header">
+          <span class="section-badge">EXQUISITE FLEET</span>
+          <h2 class="section-title">Our Exclusive Collection</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">
+            Every vehicle in our showroom undergoes rigorous multi-point validation to guarantee pristine aesthetic and mechanical excellence.
+          </p>
+        </div>
+
+        <!-- Collection Filter & Search Controls -->
+        <div class="collection-controls">
+          <div class="filter-buttons" id="filterButtons" role="group" aria-label="Filter Cars by Category">
+            <button type="button" class="filter-btn active" data-category="all">All Vehicles</button>
+            <button type="button" class="filter-btn" data-category="supercar">Supercars</button>
+            <button type="button" class="filter-btn" data-category="grand-tourer">Grand Tourers</button>
+            <button type="button" class="filter-btn" data-category="sedan">Ultra-Luxury Sedans</button>
+          </div>
+
+          <div class="search-box">
+            <input type="text" id="carSearchInput" placeholder="Search by model, make, or specs..." aria-label="Search Collection">
+            <span class="search-icon">🔍</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Car Grid (Rendered by script.js) -->
+        <div class="car-grid" id="carGrid">
+          <!-- Fallback noscript content if JavaScript is disabled -->
+          <noscript>
+            <div class="noscript-message">
+              <p>Please enable JavaScript to view the interactive car collection, live search, and favorites feature.</p>
+            </div>
+          </noscript>
+        </div>
+
+        <!-- Empty search state container (hidden by default) -->
+        <div class="empty-state" id="emptyState" style="display: none;">
+          <p>No luxury vehicles matched your search query. Please try another keyword or filter.</p>
+          <button type="button" class="btn btn-outline" id="resetFiltersBtn">Reset All Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         EXPERIENCE / ENGINE ACOUSTICS & VIDEO (HTML5 Audio/Video)
+         ====================================================== -->
+    <section class="section experience-section" id="experience">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">SENSORY EXCELLENCE</span>
+          <h2 class="section-title">The Sound of Pure Performance</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">
+            Immerse yourself in the thunderous symphony of precision-engineered multi-cylinder automotive craftsmanship.
+          </p>
+        </div>
+
+        <div class="experience-grid">
+          <!-- HTML5 Audio Demonstration Box -->
+          <article class="experience-card audio-card">
+            <div class="card-icon">🔊</div>
+            <h3 class="card-title">V12 Twin-Turbo Exhaust Note</h3>
+            <p class="card-desc">
+              Listen to the acoustic masterpiece produced by handcrafted titanium exhaust systems and high-revving quad camshafts.
+            </p>
+            <!-- HTML5 <audio> Element with native controls -->
+            <div class="audio-player-wrapper">
+              <audio id="engineAudio" controls preload="metadata">
+                <source src="assets/engine-sound.mp3" type="audio/mpeg">
+                <source src="assets/engine-sound.wav" type="audio/wav">
+                Your browser does not support the audio element.
+              </audio>
+            </div>
+            <span class="audio-tip">Tip: Use headphones for the ultimate acoustic rumble.</span>
+          </article>
+
+          <!-- HTML5 <video> Showcase Box -->
+          <article class="experience-card video-card">
+            <div class="card-icon">🎬</div>
+            <h3 class="card-title">Showroom Virtual Showcase</h3>
+            <p class="card-desc">
+              Experience the elegance of our Beverly Hills showroom floor where lighting and architecture highlight every sculpted curve.
+            </p>
+            <!-- HTML5 <video> Element with poster and controls -->
+            <figure class="video-container">
+              <video id="showroomVideo" controls poster="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80">
+                <source src="assets/showroom-showcase.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <figcaption>Showcase: Hand-finished aerodynamic carbon fiber styling.</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         VEHICLE COMPARISON TABLE (HTML5 <table> with thead/tbody)
+         ====================================================== -->
+    <section class="section comparison-section" id="comparison">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">ENGINEERING BENCHMARK</span>
+          <h2 class="section-title">Technical Specifications Comparison</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">
+            Compare flagship models across key performance metrics, powertrain benchmarks, and bespoke warranty coverage.
+          </p>
+        </div>
+
+        <!-- Responsive Table Wrapper -->
+        <div class="table-responsive">
+          <table class="comparison-table">
+            <caption>Flagship Automotive Specifications Matrix</caption>
+            <thead>
+              <tr>
+                <th scope="col">Vehicle Model</th>
+                <th scope="col">Engine & Powertrain</th>
+                <th scope="col">Horsepower</th>
+                <th scope="col">0–60 MPH</th>
+                <th scope="col">Top Speed</th>
+                <th scope="col">Transmission</th>
+                <th scope="col">Starting Price</th>
+                <th scope="col">Warranty</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Rolls-Royce Ghost</th>
+                <td>6.75L Twin-Turbo V12</td>
+                <td>563 hp</td>
+                <td>4.6 sec</td>
+                <td>155 mph</td>
+                <td>8-Speed Satellite-Aided</td>
+                <td class="table-price">$395,000</td>
+                <td>4-Year Unlimited VIP</td>
+              </tr>
+              <tr>
+                <th scope="row">Bentley Continental GT</th>
+                <td>6.0L Twin-Turbo W12</td>
+                <td>650 hp</td>
+                <td>3.5 sec</td>
+                <td>208 mph</td>
+                <td>8-Speed Dual-Clutch</td>
+                <td class="table-price">$302,000</td>
+                <td>3-Year Unlimited</td>
+              </tr>
+              <tr>
+                <th scope="row">Porsche 911 Turbo S</th>
+                <td>3.8L Twin-Turbo Flat-6</td>
+                <td>640 hp</td>
+                <td>2.6 sec</td>
+                <td>205 mph</td>
+                <td>8-Speed Porsche Doppelkupplung</td>
+                <td class="table-price">$230,000</td>
+                <td>4-Year / 50k Miles</td>
+              </tr>
+              <tr>
+                <th scope="row">Mercedes-Maybach S 680</th>
+                <td>6.0L Biturbo V12</td>
+                <td>621 hp</td>
+                <td>4.4 sec</td>
+                <td>155 mph</td>
+                <td>9G-TRONIC Automatic</td>
+                <td class="table-price">$229,000</td>
+                <td>4-Year / 50k Miles</td>
+              </tr>
+              <tr>
+                <th scope="row">Aston Martin DB12</th>
+                <td>4.0L Twin-Turbo V8</td>
+                <td>671 hp</td>
+                <td>3.5 sec</td>
+                <td>202 mph</td>
+                <td>8-Speed Automatic</td>
+                <td class="table-price">$245,000</td>
+                <td>3-Year Unlimited</td>
+              </tr>
+              <tr>
+                <th scope="row">Ferrari Roma Spider</th>
+                <td>3.9L Turbocharged V8</td>
+                <td>612 hp</td>
+                <td>3.4 sec</td>
+                <td>199 mph</td>
+                <td>8-Speed F1 Dual-Clutch</td>
+                <td class="table-price">$275,000</td>
+                <td>7-Year Maintenance</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="8">* All performance figures are verified manufacturer benchmarks. Bespoke commissions available upon request.</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         4. ABOUT US SECTION (HTML5 <article>, <aside>, <figure>)
+         ====================================================== -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="about-grid">
+          <!-- Text Narrative Article -->
+          <article class="about-content">
+            <span class="section-badge">HERITAGE & DISCRETION</span>
+            <h2 class="section-title">About Prestige Motors</h2>
+            <div class="gold-divider left"></div>
+            <p class="lead-text">
+              Founded over a quarter-century ago, Prestige Motors stands as an esteemed beacon of automotive distinction, serving royal families, collectors, and passionate drivers globally.
+            </p>
+            <p>
+              Our philosophy is rooted in an unwavering commitment to unparalleled vehicle provenance, meticulous mechanical certification, and an intimate concierge experience tailored to each client's unique tastes.
+            </p>
+            <p>
+              We believe acquiring a luxury automobile is not a mere purchase—it is an art form, a milestone, and an enduring relationship.
+            </p>
+
+            <!-- Unordered List for Core Tenets -->
+            <div class="about-tenets">
+              <h3 class="tenets-title">Our Pillars of Excellence:</h3>
+              <ul class="tenets-list">
+                <li><strong>Absolute Provenance:</strong> Unblemished ownership pedigree verified through official manufacturer registries.</li>
+                <li><strong>150-Point Concours Standard:</strong> Every component inspected, calibrated, and perfected by certified master mechanics.</li>
+                <li><strong>Discrete VIP Advisory:</strong> Private viewing lounges, tailored tax structures, and confidential transactions.</li>
+              </ul>
+            </div>
+          </article>
+
+          <!-- Aside with Image and Showroom Credentials -->
+          <aside class="about-visual">
+            <figure class="about-figure">
+              <img src="https://images.unsplash.com/photo-1562911791-c7a97b729ec5?auto=format&fit=crop&w=1000&q=80" alt="Prestige Motors luxury showroom lounge interior" loading="lazy">
+              <figcaption>Prestige Motors Private Viewing Lounge - Beverly Hills, California</figcaption>
+            </figure>
+
+            <!-- Stat Badges Card -->
+            <div class="about-stats-card">
+              <div class="stat-box">
+                <span class="stat-number">25+</span>
+                <span class="stat-text">Years of Heritage</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">99.8%</span>
+                <span class="stat-text">Client Satisfaction</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">500+</span>
+                <span class="stat-text">Exotics Delivered</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-number">24/7</span>
+                <span class="stat-text">VIP Concierge</span>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         5. WHY CHOOSE US SECTION (Cards + Ordered List Process)
+         ====================================================== -->
+    <section class="section why-section" id="why-choose-us">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">THE PRESTIGE ADVANTAGE</span>
+          <h2 class="section-title">Why Discerning Collectors Choose Us</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">
+            Beyond offering rare automobiles, we deliver peace of mind, financial flexibility, and lifelong devotion to your automotive journey.
+          </p>
+        </div>
+
+        <!-- 3 Core Benefit Cards -->
+        <div class="benefits-grid">
+          <article class="benefit-card">
+            <div class="benefit-icon-wrapper">
+              <span class="benefit-icon">🏆</span>
+            </div>
+            <h3 class="benefit-title">Curated Premium Collection</h3>
+            <p class="benefit-text">
+              We hand-select only the top 1% of luxury and exotic motorcars available worldwide. Each vehicle represents historic pedigree, rare specifications, and immaculate cosmetic integrity.
+            </p>
+            <ul class="benefit-sublist">
+              <li>Verified low-mileage examples</li>
+              <li>Rare manufacturer paint & bespoke options</li>
+              <li>Single-owner and collector-grade specimens</li>
+            </ul>
+          </article>
+
+          <article class="benefit-card highlighted">
+            <div class="benefit-icon-wrapper">
+              <span class="benefit-icon">🛡️</span>
+            </div>
+            <h3 class="benefit-title">Trusted Certified Service</h3>
+            <p class="benefit-text">
+              Our state-of-the-art facility is staffed by factory-certified master technicians equipped with genuine factory diagnostics, original manufacturer parts, and extended warranty protections.
+            </p>
+            <ul class="benefit-sublist">
+              <li>150-point diagnostic & road test audit</li>
+              <li>Comprehensive bumper-to-bumper warranty</li>
+              <li>Complimentary lifetime annual health checks</li>
+            </ul>
+          </article>
+
+          <article class="benefit-card">
+            <div class="benefit-icon-wrapper">
+              <span class="benefit-icon">💼</span>
+            </div>
+            <h3 class="benefit-title">Bespoke & Affordable Financing</h3>
+            <p class="benefit-text">
+              Through prestigious private banking relationships, we structure tailored acquisition packages—including competitive lease options, seasonal balloon payment schedules, and private credit solutions.
+            </p>
+            <ul class="benefit-sublist">
+              <li>Confidential asset-backed credit options</li>
+              <li>Flexible 24 to 84-month terms</li>
+              <li>Seamless international registration support</li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Ordered List: 4-Step VIP Acquisition Process -->
+        <div class="process-wrapper">
+          <h3 class="process-header">Our Seamless 4-Step Acquisition Process:</h3>
+          <ol class="acquisition-steps">
+            <li class="step-item">
+              <div class="step-num">01</div>
+              <div class="step-details">
+                <h4>Private Consultation</h4>
+                <p>Discuss your aesthetic preferences, performance goals, and ownership timeline with your dedicated advisor.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">02</div>
+              <div class="step-details">
+                <h4>Sensory Experience & Test Drive</h4>
+                <p>Enjoy a private showroom demonstration or closed-course track session tailored around your availability.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">03</div>
+              <div class="step-details">
+                <h4>Custom Tailored Financing</h4>
+                <p>Finalize bespoke terms and title logistics effortlessly with our discrete financial department.</p>
+              </div>
+            </li>
+            <li class="step-item">
+              <div class="step-num">04</div>
+              <div class="step-details">
+                <h4>White-Glove Delivery</h4>
+                <p>Receive your masterpiece via enclosed climate-controlled transport at your residence or yacht marina.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         6. IMAGE GALLERY SECTION
+         ====================================================== -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">VISUAL MASTERPIECES</span>
+          <h2 class="section-title">Automotive Craftsmanship Gallery</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">
+            Click on any photograph to open the interactive high-resolution gallery viewer and inspect every immaculate detail.
+          </p>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid" id="galleryGrid">
+          <figure class="gallery-item" data-caption="Cockpit Luxury & Ergonomic Digital Displays">
+            <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80" alt="Supercar driver cockpit and steering wheel" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+              <figcaption>Driver Cockpit & Carbon Controls</figcaption>
+            </div>
+          </figure>
+
+          <figure class="gallery-item" data-caption="Bespoke Hand-Stitched Italian Leather Interior">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=800&q=80" alt="Handcrafted luxury leather seats" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+              <figcaption>Hand-Stitched Leather Interior</figcaption>
+            </div>
+          </figure>
+
+          <figure class="gallery-item" data-caption="Lightweight Forged Alloy Wheel & Carbon Ceramic Calipers">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Forged alloy rim and brake rotor" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+              <figcaption>Forged Alloy & Ceramic Brakes</figcaption>
+            </div>
+          </figure>
+
+          <figure class="gallery-item" data-caption="Aerodynamic Silhouette & Signature Rear LED Illumination">
+            <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80" alt="Night view of luxury sports car rear lights" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+              <figcaption>Aerodynamic Rear Light Sculpture</figcaption>
+            </div>
+          </figure>
+
+          <figure class="gallery-item" data-caption="Polished Chrome Front Grille & Signature Brand Heraldry">
+            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=800&q=80" alt="Chrome front vehicle grille" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+              <figcaption>Polished Front Grille Heraldry</figcaption>
+            </div>
+          </figure>
+
+          <figure class="gallery-item" data-caption="Sculpted Side Profile & Proportional Elegance in Motion">
+            <img src="https://images.unsplash.com/photo-1544829099-b9a0c07fad1a?auto=format&fit=crop&w=800&q=80" alt="Sleek side profile of luxury grand tourer" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-zoom-icon">🔍</span>
+              <figcaption>Sculpted Aerodynamic Profile</figcaption>
+            </div>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================
+         7. CONTACT SECTION (Form + Details + Google Maps iframe)
+         ====================================================== -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-badge">VIP CONCIERGE</span>
+          <h2 class="section-title">Schedule Your Private Appointment</h2>
+          <div class="gold-divider"></div>
+          <p class="section-subtitle">
+            Our private showroom is accessible strictly by prior appointment to maintain complete confidentiality and personalized hospitality.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Left Column: Showroom Information & Map iframe -->
+          <div class="contact-info-panel">
+            <h3 class="panel-title">Showroom Headquarters</h3>
+            <p class="panel-desc">
+              Situated in the heart of Beverly Hills, our private sanctuary features a rotating showcase of rare exotics and exclusive collector lounges.
+            </p>
+
+            <ul class="contact-details-list">
+              <li>
+                <span class="info-icon">📍</span>
+                <div>
+                  <strong>Address</strong>
+                  <p>450 North Rodeo Drive, Beverly Hills, CA 90210</p>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon">📞</span>
+                <div>
+                  <strong>Telephone</strong>
+                  <p><a href="tel:+13105550198">+1 (310) 555-0198</a></p>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon">✉️</span>
+                <div>
+                  <strong>VIP Inquiries</strong>
+                  <p><a href="mailto:concierge@prestigemotors.com">concierge@prestigemotors.com</a></p>
+                </div>
+              </li>
+              <li>
+                <span class="info-icon">🕒</span>
+                <div>
+                  <strong>Private Hours</strong>
+                  <p>Monday – Saturday: 9:00 AM – 7:00 PM<br>Sunday: By Private Invitation Only</p>
+                </div>
+              </li>
+            </ul>
+
+            <!-- Google Maps <iframe> Embed -->
+            <div class="map-container">
+              <iframe 
+                title="Prestige Motors Beverly Hills Showroom Map"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.158784860166!2d-118.40685712348577!3d34.06540671699926!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2bc04ce7730e7%3A0xc00f135b1c93a73a!2sRodeo%20Dr%2C%20Beverly%20Hills%2C%20CA%2090210!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" 
+                width="100%" 
+                height="220" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Contact Form with Validation -->
+          <div class="contact-form-panel">
+            <h3 class="panel-title">Request VIP Consultation</h3>
+            
+            <!-- Live Success / Error Banner -->
+            <div id="formAlert" class="form-alert" style="display: none;" role="alert"></div>
+
+            <form id="contactForm" novalidate>
+              <!-- Full Name Field -->
+              <div class="form-group">
+                <label for="fullName">Full Name <span class="required">*</span></label>
+                <input type="text" id="fullName" name="fullName" placeholder="e.g. Alexander Sterling" autocomplete="name">
+                <span class="error-msg" id="nameError"></span>
+              </div>
+
+              <!-- Two Column Row: Email & Phone -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="email">Email Address <span class="required">*</span></label>
+                  <input type="email" id="email" name="email" placeholder="alexander@example.com" autocomplete="email">
+                  <span class="error-msg" id="emailError"></span>
+                </div>
+                <div class="form-group">
+                  <label for="phone">Phone Number <span class="required">*</span></label>
+                  <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000" autocomplete="tel">
+                  <span class="error-msg" id="phoneError"></span>
+                </div>
+              </div>
+
+              <!-- Vehicle of Interest Dropdown (<select>) -->
+              <div class="form-group">
+                <label for="vehicleSelect">Vehicle of Interest</label>
+                <select id="vehicleSelect" name="vehicleSelect">
+                  <option value="General Inquiry">Select a vehicle model (Optional)</option>
+                  <option value="Rolls-Royce Ghost">Rolls-Royce Ghost ($395,000)</option>
+                  <option value="Bentley Continental GT">Bentley Continental GT ($302,000)</option>
+                  <option value="Porsche 911 Turbo S">Porsche 911 Turbo S ($230,000)</option>
+                  <option value="Mercedes-Maybach S 680">Mercedes-Maybach S 680 ($229,000)</option>
+                  <option value="Aston Martin DB12">Aston Martin DB12 ($245,000)</option>
+                  <option value="Ferrari Roma Spider">Ferrari Roma Spider ($275,000)</option>
+                </select>
+              </div>
+
+              <!-- Consultation Type Radios -->
+              <div class="form-group">
+                <label class="group-label">Preferred Appointment Type</label>
+                <div class="radio-group">
+                  <label class="radio-label">
+                    <input type="radio" name="inquiryType" value="Private Showroom Tour" checked>
+                    <span>Private Showroom Tour</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="inquiryType" value="Track Test Drive">
+                    <span>Track Test Drive</span>
+                  </label>
+                  <label class="radio-label">
+                    <input type="radio" name="inquiryType" value="Bespoke Financing Inquiry">
+                    <span>Bespoke Financing Inquiry</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Message Field (<textarea>) -->
+              <div class="form-group">
+                <label for="message">Message / Specific Requests <span class="required">*</span></label>
+                <textarea id="message" name="message" rows="4" placeholder="Tell us about your preferred specifications, timeline, or consultation date..."></textarea>
+                <span class="error-msg" id="messageError"></span>
+              </div>
+
+              <!-- Opt-in Checkbox -->
+              <div class="form-group checkbox-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="newsletterCheck" name="newsletterCheck" checked>
+                  <span>Receive discreet private invitations to upcoming vehicle reveals.</span>
+                </label>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                <span class="btn-text">Submit VIP Request</span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       8. FOOTER (HTML5 <footer> semantic element)
+       ======================================================== -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <!-- Footer Column 1: Brand Info -->
+      <div class="footer-col brand-col">
+        <a href="#hero" class="brand-logo footer-logo">
+          <span class="logo-crest">⚜</span>
+          <div class="logo-text">
+            <span class="brand-name">PRESTIGE</span>
+            <span class="brand-sub">MOTORS</span>
+          </div>
+        </a>
+        <p class="footer-about">
+          Prestige Motors is California's premier purveyor of extraordinary automotive masterpieces, offering unrivaled pedigree, white-glove logistics, and bespoke client advisory.
+        </p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Follow us on Instagram">Instagram</a>
+          <a href="#" class="social-link" aria-label="Watch our YouTube showcases">YouTube</a>
+          <a href="#" class="social-link" aria-label="Connect on LinkedIn">LinkedIn</a>
+          <a href="#" class="social-link" aria-label="Follow us on X">X / Twitter</a>
+        </div>
+      </div>
+
+      <!-- Footer Column 2: Quick Links -->
+      <div class="footer-col">
+        <h4 class="footer-title">Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#collection">Our Cars</a></li>
+          <li><a href="#comparison">Technical Matrix</a></li>
+          <li><a href="#about">About Prestige Motors</a></li>
+          <li><a href="#why-choose-us">Why Choose Us</a></li>
+          <li><a href="#gallery">Showroom Gallery</a></li>
+          <li><a href="#contact">VIP Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 3: Featured Models -->
+      <div class="footer-col">
+        <h4 class="footer-title">Featured Models</h4>
+        <ul class="footer-links">
+          <li><a href="#collection">Rolls-Royce Ghost</a></li>
+          <li><a href="#collection">Bentley Continental GT</a></li>
+          <li><a href="#collection">Porsche 911 Turbo S</a></li>
+          <li><a href="#collection">Mercedes-Maybach S 680</a></li>
+          <li><a href="#collection">Aston Martin DB12</a></li>
+          <li><a href="#collection">Ferrari Roma Spider</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 4: Contact & Concierge -->
+      <div class="footer-col">
+        <h4 class="footer-title">Concierge Desk</h4>
+        <p class="footer-contact-item"><strong>Address:</strong> 450 N. Rodeo Dr., Beverly Hills, CA</p>
+        <p class="footer-contact-item"><strong>Phone:</strong> +1 (310) 555-0198</p>
+        <p class="footer-contact-item"><strong>Email:</strong> concierge@prestigemotors.com</p>
+        <p class="footer-contact-item"><strong>Hours:</strong> Mon–Sat 9AM–7PM PST</p>
+      </div>
+    </div>
+
+    <!-- Bottom Copyright & Legal Sub-bar -->
+    <div class="footer-bottom">
+      <div class="container footer-bottom-container">
+        <p class="copyright">
+          &copy; 2026 Prestige Motors Automobile Showroom. Built with HTML5, CSS3 &amp; Vanilla JavaScript. All Rights Reserved.
+        </p>
+        <a href="#hero" class="back-to-top" id="backToTopBtn" aria-label="Return to top of page">
+          Back to Top ↑
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       FAVORITES MODAL DIALOG (Saved in LocalStorage)
+       ======================================================== -->
+  <div class="modal-backdrop" id="favoritesModal" role="dialog" aria-modal="true" aria-labelledby="favModalTitle" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <div class="modal-title-wrap">
+          <span class="modal-crest">⚜</span>
+          <h3 id="favModalTitle">Your Saved Vehicles</h3>
+        </div>
+        <button type="button" class="modal-close-btn" id="closeFavModalBtn" aria-label="Close saved vehicles dialog">&times;</button>
+      </div>
+
+      <div class="modal-body">
+        <div id="favoritesList" class="favorites-list">
+          <!-- Rendered dynamically by script.js -->
+        </div>
+        <div id="emptyFavorites" class="empty-favorites-msg" style="display: none;">
+          <p>You have not saved any luxury vehicles to your favorites yet.</p>
+          <a href="#collection" class="btn btn-primary" id="exploreFromFavsBtn">Browse Our Collection</a>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="clearAllFavsBtn">Clear All Favorites</button>
+        <a href="#contact" class="btn btn-primary" id="inquireFavsBtn">Inquire About Saved Cars</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================
+       IMAGE LIGHTBOX MODAL (For Gallery view)
+       ======================================================== -->
+  <div class="lightbox-backdrop" id="lightboxModal" role="dialog" aria-modal="true" style="display: none;">
+    <button type="button" class="lightbox-close" id="lightboxCloseBtn" aria-label="Close Lightbox">&times;</button>
+    <div class="lightbox-content">
+      <img id="lightboxImg" src="" alt="Full size vehicle photograph">
+      <p id="lightboxCaption" class="lightbox-caption"></p>
+    </div>
+  </div>
+
+  <!-- Toast Notification Alert -->
+  <div id="toastNotification" class="toast-notification" role="status" aria-live="polite"></div>
+
+  <!-- External Vanilla JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
